@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>T5 - Segundo Trimestre</title>
+
+<style>
+
+/* RESET */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Segoe UI',sans-serif;
+background:#f4f6fb;
+}
+
+/* MENU */
+.menu{
+background:linear-gradient(135deg,#667eea,#764ba2);
+padding:20px;
+text-align:center;
+}
+
+.menu button{
+background:white;
+border:none;
+padding:10px 20px;
+margin:5px;
+border-radius:25px;
+cursor:pointer;
+font-weight:bold;
+transition:0.3s;
+}
+
+.menu button:hover{
+background:#ffd166;
+}
+
+/* SEÇÕES */
+.section{
+display:none;
+padding:50px 10%;
+animation:fade 0.5s ease;
+}
+
+.active{
+display:block;
+}
+
+@keyframes fade{
+from{opacity:0;}
+to{opacity:1;}
+}
+
+/* T1 */
+.container3{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+margin-top:30px;
+}
+
+.quadro{
+background:white;
+padding:25px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.quadro h2{
+margin-bottom:15px;
+color:#764ba2;
+}
+
+/* T2 */
+.codigo{
+background:#1e293b;
+color:white;
+padding:20px;
+border-radius:10px;
+margin-top:20px;
+overflow:auto;
+}
+
+/* T3 */
+.layout{
+display:grid;
+grid-template-columns:250px 1fr;
+gap:20px;
+margin-top:30px;
+}
+
+.sidebar{
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.galeria{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px;
+}
+
+.galeria img{
+width:100%;
+height:200px;
+object-fit:cover;
+border-radius:10px;
+box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
+
+/* RESPONSIVO */
+@media(max-width:900px){
+.container3,
+.galeria{
+grid-template-columns:1fr;
+}
+
+.layout{
+grid-template-columns:1fr;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- MENU -->
+<div class="menu">
+<button onclick="showSection('t1')">T1 - CSS</button>
+<button onclick="showSection('t2')">T2 - Seletores</button>
+<button onclick="showSection('t3')">T3 - Layout</button>
+</div>
+
+<!-- ================= T1 ================= -->
+<div id="t1" class="section active">
+<h1>📘 T1 - Introdução ao CSS</h1>
+
+<div class="container3">
+
+<div class="quadro">
+<h2>O que é CSS?</h2>
+<p>CSS significa <strong>Cascading Style Sheets</strong>. É a linguagem usada para estilizar páginas web.</p>
+<p>Com CSS podemos mudar cores, fontes, tamanhos, espaçamentos, layouts e tornar o site moderno.</p>
+<p>Sem CSS os sites ficariam apenas com texto simples e sem organização visual.</p>
+</div>
+
+<div class="quadro">
+<h2>Importância do CSS</h2>
+<p>✔ Melhora o design do site</p>
+<p>✔ Organiza os conteúdos</p>
+<p>✔ Torna o site responsivo</p>
+<p>✔ Separa conteúdo (HTML) da aparência (CSS)</p>
+<p>✔ Permite criar animações e efeitos modernos</p>
+</div>
+
+<div class="quadro">
+<h2>Tipos de CSS</h2>
+<p><strong>1. Inline:</strong> Dentro da própria tag HTML.</p>
+<p><strong>2. Interno:</strong> Dentro da tag &lt;style&gt;.</p>
+<p><strong>3. Externo:</strong> Em ficheiro separado (.css).</p>
+<p>O mais recomendado é o CSS Externo porque deixa o código mais organizado.</p>
+</div>
+
+</div>
+</div>
+
+<!-- ================= T2 ================= -->
+<div id="t2" class="section">
+<h1>🎯 T2 - Seletores CSS</h1>
+
+<p>Seletores servem para escolher quais elementos HTML queremos estilizar.</p>
+
+<div class="container3">
+
+<div class="quadro">
+<h2>Seletor de Elemento</h2>
+<p>Seleciona todas as tags iguais.</p>
+<div class="codigo">
+p {<br>
+&nbsp;&nbsp;color: blue;<br>
+}
+</div>
+</div>
+
+<div class="quadro">
+<h2>Seletor de Classe</h2>
+<p>Seleciona elementos com class específica.</p>
+<div class="codigo">
+.destaque {<br>
+&nbsp;&nbsp;color: red;<br>
+}
+</div>
+</div>
+
+<div class="quadro">
+<h2>Seletor de ID</h2>
+<p>Seleciona um único elemento.</p>
+<div class="codigo">
+#titulo {<br>
+&nbsp;&nbsp;color: green;<br>
+}
+</div>
+</div>
+
+</div>
+
+</div>
+
+<!-- ================= T3 ================= -->
+<div id="t3" class="section">
+<h1>🖼 T3 - Layout com Sidebar e Galeria</h1>
+
+<div class="layout">
+
+<div class="sidebar">
+<h3>Menu Lateral</h3>
+<p>Início</p>
+<p>Galeria</p>
+<p>Contacto</p>
+</div>
+
+<div>
+<div class="galeria">
+<img src="https://via.placeholder.com/400x400">
+<img src="https://via.placeholder.com/400x400">
+<img src="https://via.placeholder.com/400x400">
+</div>
+</div>
+
+</div>
+</div>
+
+<script>
+function showSection(id){
+let sections=document.querySelectorAll(".section");
+sections.forEach(sec=>sec.classList.remove("active"));
+document.getElementById(id).classList.add("active");
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T2</title>
+      <style>
+        body {
+      width: 100%;
+      height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #17e9d7;
+      text-align: center;
+      padding: 20px;
+      margin: 0%;
+
+    } 
+
+    #multimedia {
+            height: 100vb;
+            display: grid;
+            justify-content: space-evenly;
+            margin: auto;
+
+            height: auto;
+            width: 10%;
+        }
+
+  </style>
+</head>
+<body>
+  <h1>Selectores em CSS</h1>
+
+<li>O quê são seletores em CSS? </li>
+<p>Os seletores são usados para "selecionar" elementos HTML que você quer 
+modificar com regras de estilo. 
+
+Exemplo básico: 
+p {  color: blue;} 
+Aqui, o seletor p seleciona todas as tags <p> da página e define a cor do texto como 
+azul. </p>
+
+<h1>Tipos de Seletores CSS</h1>
+
+<li>1. Seletor de Tipo (ou de Tag)</li>
+<p>Seleciona todas as tags HTML de um tipo específico. 
+h1 { color: red;} 
+p {  font-size: 18px;} </p>
+
+<li>2. Seletor de Classe (.classe)</li>
+<p>Seleciona elementos com um atributo class. 
+<p class="destaque">Texto em destaque</p> 
+.destaque { 
+color: blue; 
+font-weight: bold; 
+} 
+É usado com um ponto (.) antes do nome da classe. 
+Vários elementos podem compartilhar a mesma classe. </p>
+
+<li>3. Seletor de ID (#id)</li>
+<p>Seleciona um elemento com um identificador único. 
+<p id="titulo">Título Principal</p> 
+#titulo { 
+color: green; 
+text-transform: uppercase; 
+} 
+É usado com uma hashtag (#). 
+Cada página deve ter apenas um elemento com o mesmo ID.</p>
+
+<li>4. Seletor Universal (*)</li>
+<p>Seleciona todos os elementos da página. 
+* { 
+margin: 0; 
+padding: 0; 
+box-sizing: border-box; 
+} 
+Muito usado para resetar o estilo padrão do navegador.</p>
+
+<li>5. Seletor de Agrupamento</li>
+<p>Permite aplicar o mesmo estilo a vários seletores. 
+h1, h2, h3 { 
+color: darkblue; 
+font-family: Arial, sans-serif; 
+} 
+Evita repetição de código. </p>
+
+<li>6. Seletor Descendente</li>
+<p>Seleciona elementos dentro de outro elemento. 
+<div> 
+<p>Texto dentro da div</p> 
+</div> 
+div p { 
+color: purple; 
+} 
+Aplica o estilo somente ao <p> que está dentro da <div></p>
+
+    <li>7. Seletor Filho Direto (>)</li>
+    <p>Seleciona apenas os filhos diretos de um elemento. 
+<div> 
+<p>Filho direto</p> 
+<section> 
+<p>Filho indireto</p> 
+</section> 
+</div> 
+div > p { 
+color: red; 
+} 
+Somente o primeiro <p> será afetado.</p>
+
+<li>8. Seletor de Atributo </li>
+<p>Seleciona elementos com base em atributos HTML. 
+
+input[type="email"] { 
+border: 2px solid green; 
+} 
+Também aceita variações: 
+• [attr^=valor] → começa com valor 
+• [attr$=valor] → termina com valor 
+• [attr*=valor] → contém o valor 
+
+Aplica estilos a estados específicos de um elemento. 
+a:hover { 
+color: red; 
+} 
+input:focus { 
+border-color: blue; 
+} 
+Exemplos: 
+• :hover → quando o mouse passa sobre 
+• :focus → quando o campo está em foco 
+• :first-child, :last-child → primeiro ou último filho</p>
+
+<li>9. Seletor Pseudo-classe (:)</li>
+<p>Aplica estilos a estados específicos de um elemento. 
+a:hover { 
+color: red; 
+} 
+input:focus { 
+border-color: blue; 
+} </p>
+</ul>
+
+</body>
+</html>

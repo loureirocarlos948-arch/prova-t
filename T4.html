@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projeto Profissional - HTML & CSS</title>
+
+<style>
+
+/* ========================= */
+/* RESET E CONFIG GLOBAL     */
+/* ========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background:linear-gradient(to right,#0f172a,#1e293b);
+    color:#f8fafc;
+}
+
+/* ========================= */
+/* HEADER                    */
+/* ========================= */
+
+header{
+    text-align:center;
+    padding:4rem 2rem;
+    background:linear-gradient(135deg,#4f46e5,#9333ea);
+    box-shadow:0 5px 20px rgba(0,0,0,0.4);
+}
+
+header h1{
+    font-size:2.8rem;
+    margin-bottom:1rem;
+}
+
+header p{
+    font-size:1.2rem;
+    opacity:0.9;
+}
+
+/* ========================= */
+/* CONTAINER                 */
+/* ========================= */
+
+.container{
+    max-width:1100px;
+    margin:3rem auto;
+    padding:0 2rem;
+}
+
+/* ========================= */
+/* CARDS / SEÇÕES            */
+/* ========================= */
+
+.section{
+    background:#1e293b;
+    padding:2.5rem;
+    border-radius:16px;
+    margin-bottom:2.5rem;
+    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+    transition:0.3s;
+}
+
+.section:hover{
+    transform:translateY(-5px);
+}
+
+.section h2{
+    margin-bottom:1.5rem;
+    color:#38bdf8;
+    border-left:5px solid #38bdf8;
+    padding-left:10px;
+}
+
+/* ========================= */
+/* LISTAS                    */
+/* ========================= */
+
+ul, ol{
+    padding-left:25px;
+    line-height:2;
+}
+
+ul li{
+    margin-bottom:5px;
+}
+
+/* ========================= */
+/* MENU MODERNO              */
+/* ========================= */
+
+.modern-menu{
+    list-style:none;
+    padding:0;
+}
+
+.modern-menu li{
+    padding:15px;
+    margin-bottom:8px;
+    background:#334155;
+    border-radius:8px;
+    transition:0.3s;
+    cursor:pointer;
+}
+
+.modern-menu li:hover{
+    background:#6366f1;
+    transform:translateX(10px);
+}
+
+.modern-menu li:nth-child(odd){
+    background:#475569;
+}
+
+/* ========================= */
+/* TABELAS                   */
+/* ========================= */
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:1rem;
+    overflow:hidden;
+    border-radius:10px;
+}
+
+th{
+    background:#4f46e5;
+    padding:15px;
+    text-align:left;
+}
+
+td{
+    padding:15px;
+}
+
+tbody tr{
+    background:#334155;
+    transition:0.3s;
+}
+
+tbody tr:nth-child(even){
+    background:#475569;
+}
+
+tbody tr:hover{
+    background:#6366f1;
+    transform:scale(1.01);
+}
+
+/* ========================= */
+/* FOOTER                    */
+/* ========================= */
+
+footer{
+    text-align:center;
+    padding:2rem;
+    background:#0f172a;
+    margin-top:3rem;
+    font-size:0.9rem;
+    opacity:0.8;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Projeto Profissional - HTML & CSS</h1>
+    <p>Estrutura HTML + Estilização Avançada com CSS</p>
+</header>
+
+<div class="container">
+
+<div class="section">
+<h2>1. Lista Não Ordenada</h2>
+<ul>
+    <li>HTML Estrutura</li>
+    <li>CSS Estilização</li>
+    <li>Layouts Responsivos</li>
+</ul>
+</div>
+
+<div class="section">
+<h2>2. Lista Ordenada</h2>
+<ol>
+    <li>Planejamento</li>
+    <li>Desenvolvimento</li>
+    <li>Finalização</li>
+</ol>
+</div>
+
+<div class="section">
+<h2>3. Menu Moderno com Pseudo-classes</h2>
+<ul class="modern-menu">
+    <li>Dashboard</li>
+    <li>Perfil</li>
+    <li>Configurações</li>
+    <li>Relatórios</li>
+    <li>Sair</li>
+</ul>
+</div>
+
+<div class="section">
+<h2>4. Tabela de Usuários</h2>
+<table>
+<thead>
+<tr>
+    <th>Nome</th>
+    <th>Status</th>
+    <th>Curso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td>Carlos</td>
+    <td>Ativo</td>
+    <td>Informática</td>
+</tr>
+<tr>
+    <td>Ana</td>
+    <td>Pendente</td>
+    <td>Design</td>
+</tr>
+<tr>
+    <td>Bruno</td>
+    <td>Inativo</td>
+    <td>Redes</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+
+<footer>
+© 2026 - Projeto Desenvolvido por Carlos loureiro
+</footer>
+
+</body>
+</html>
