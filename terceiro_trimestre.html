@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Situação do Aluno</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#1e3c72,#2a5298);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.container{
+    width:800px;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 0 20px rgba(0,0,0,.3);
+}
+
+h1{
+    text-align:center;
+    margin-bottom:20px;
+    color:#1e3c72;
+}
+
+.formulario{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+input, select{
+    width:100%;
+    padding:10px;
+    border:1px solid #ccc;
+    border-radius:8px;
+}
+
+.bloco{
+    display:flex;
+    flex-direction:column;
+}
+
+.notas{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+    margin-top:20px;
+}
+
+.resultado{
+    margin-top:20px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+}
+
+#situacao{
+    font-weight:bold;
+    text-align:center;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Programa Situação do Aluno</h1>
+
+<div class="formulario">
+
+<div class="bloco">
+<label>Curso</label>
+<input type="text">
+</div>
+
+<div class="bloco">
+<label>Nome</label>
+<input type="text">
+</div>
+
+<div class="bloco">
+<label>Número do Aluno</label>
+<input type="text">
+</div>
+
+<div class="bloco">
+<label>BI</label>
+<input type="text">
+</div>
+
+<div class="bloco">
+<label>Telefone</label>
+<input type="text">
+</div>
+
+<div class="bloco">
+<label>Email</label>
+<input type="email">
+</div>
+
+<div class="bloco">
+<label>Turma</label>
+<input type="text">
+</div>
+
+<div class="bloco">
+<label>Turno</label>
+<input type="text">
+</div>
+
+<div class="bloco">
+<label>Classe</label>
+<input type="text">
+</div>
+
+<div class="bloco">
+<label>Disciplina</label>
+<input type="text">
+</div>
+
+</div>
+
+<div class="notas">
+
+<div class="bloco">
+<label>Nota 1</label>
+<input type="number" id="n1" oninput="calcular()">
+</div>
+
+<div class="bloco">
+<label>Nota 2</label>
+<input type="number" id="n2" oninput="calcular()">
+</div>
+
+<div class="bloco">
+<label>Nota 3</label>
+<input type="number" id="n3" oninput="calcular()">
+</div>
+
+</div>
+
+<div class="resultado">
+
+<div class="bloco">
+<label>Média</label>
+<input type="text" id="media" readonly>
+</div>
+
+<div class="bloco">
+<label>Situação</label>
+<input type="text" id="situacao" readonly>
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function calcular(){
+
+let n1 = parseFloat(document.getElementById("n1").value) || 0;
+let n2 = parseFloat(document.getElementById("n2").value) || 0;
+let n3 = parseFloat(document.getElementById("n3").value) || 0;
+
+if(n1==0 || n2==0 || n3==0){
+    return;
+}
+
+let media = (n1+n2+n3)/3;
+
+document.getElementById("media").value = media.toFixed(1);
+
+let situacao = document.getElementById("situacao");
+
+if(media >= 10){
+    situacao.value = "APTO";
+    situacao.style.color = "green";
+}
+
+else if(media >= 8){
+    situacao.value = "RECURSO";
+    situacao.style.color = "orange";
+}
+
+else{
+    situacao.value = "REPROVADO";
+    situacao.style.color = "red";
+}
+
+}
+
+</script>
+
+</body>
+</html>
