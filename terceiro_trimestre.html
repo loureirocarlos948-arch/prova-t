@@ -3,9 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Situação do Aluno</title>
+
+<title>Sistema Escolar</title>
 
 <style>
+
+/* ========================= */
+/* RESET */
+/* ========================= */
 
 *{
     margin:0;
@@ -14,196 +19,430 @@
     font-family:Arial, sans-serif;
 }
 
+/* ========================= */
+/* BODY */
+/* ========================= */
+
 body{
-    background:linear-gradient(135deg,#1e3c72,#2a5298);
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+    background:#eef2f7;
     padding:20px;
 }
 
-.container{
-    width:800px;
-    background:white;
-    padding:30px;
-    border-radius:15px;
-    box-shadow:0 0 20px rgba(0,0,0,.3);
-}
+/* ========================= */
+/* TÍTULO */
+/* ========================= */
 
 h1{
     text-align:center;
-    margin-bottom:20px;
-    color:#1e3c72;
+    color:#0d3b66;
+    margin-bottom:25px;
+    font-size:35px;
 }
+
+/* ========================= */
+/* CONTAINER */
+/* ========================= */
+
+.container{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 0 15px rgba(0,0,0,0.1);
+}
+
+/* ========================= */
+/* FORMULÁRIO */
+/* ========================= */
 
 .formulario{
     display:grid;
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
     gap:15px;
 }
 
-input, select{
-    width:100%;
-    padding:10px;
-    border:1px solid #ccc;
-    border-radius:8px;
-}
-
-.bloco{
+.campo{
     display:flex;
     flex-direction:column;
 }
 
-.notas{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:10px;
-    margin-top:20px;
-}
-
-.resultado{
-    margin-top:20px;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:10px;
-}
-
-#situacao{
+.campo label{
+    margin-bottom:5px;
     font-weight:bold;
+    color:#333;
+}
+
+.campo input{
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:6px;
+    outline:none;
+    transition:0.3s;
+}
+
+.campo input:focus{
+    border-color:#0d6efd;
+    box-shadow:0 0 5px rgba(13,110,253,.4);
+}
+
+/* ========================= */
+/* ÁREA DAS NOTAS */
+/* ========================= */
+
+.notas{
+    margin-top:25px;
+    background:#f8f9fc;
+    padding:20px;
+    border-radius:10px;
+}
+
+.notas h2{
+    margin-bottom:15px;
+    color:#0d3b66;
+}
+
+.notas-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:15px;
+}
+
+/* ========================= */
+/* BOTÃO */
+/* ========================= */
+
+.btn{
+    margin-top:25px;
+    padding:14px;
+    width:100%;
+    border:none;
+    border-radius:8px;
+    background:#0d6efd;
+    color:white;
+    font-size:17px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#0b5ed7;
+}
+
+/* ========================= */
+/* RESUMO */
+/* ========================= */
+
+.resumo{
+    margin-top:30px;
+    background:white;
+    padding:20px;
+    border-left:6px solid #0d6efd;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,.08);
+}
+
+.resumo h3{
+    margin-bottom:10px;
+    color:#0d3b66;
+}
+
+/* ========================= */
+/* TABELA */
+/* ========================= */
+
+.tabela{
+    margin-top:30px;
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    box-shadow:0 0 10px rgba(0,0,0,.08);
+}
+
+th{
+    background:#0d3b66;
+    color:white;
+    padding:14px;
+    font-size:15px;
+}
+
+td{
+    padding:12px;
+    border:1px solid #ddd;
     text-align:center;
+}
+
+tr:nth-child(even){
+    background:#f4f6f9;
+}
+
+/* ========================= */
+/* SITUAÇÃO */
+/* ========================= */
+
+.apto{
+    color:green;
+    font-weight:bold;
+}
+
+.recurso{
+    color:orange;
+    font-weight:bold;
+}
+
+.naoapto{
+    color:red;
+    font-weight:bold;
+}
+
+/* ========================= */
+/* RESPONSIVO */
+/* ========================= */
+
+@media(max-width:768px){
+
+    h1{
+        font-size:28px;
+    }
+
+    .container{
+        padding:15px;
+    }
+
 }
 
 </style>
 </head>
-
 <body>
+
+<h1>Situação Académica do Aluno</h1>
 
 <div class="container">
 
-<h1>Programa Situação do Aluno</h1>
-
 <div class="formulario">
 
-<div class="bloco">
+<div class="campo">
 <label>Curso</label>
-<input type="text">
+<input type="text" id="curso">
 </div>
 
-<div class="bloco">
-<label>Nome</label>
-<input type="text">
+<div class="campo">
+<label>Nome do Aluno</label>
+<input type="text" id="nome">
 </div>
 
-<div class="bloco">
+<div class="campo">
 <label>Número do Aluno</label>
-<input type="text">
+<input type="text" id="numero">
 </div>
 
-<div class="bloco">
-<label>BI</label>
-<input type="text">
+<div class="campo">
+<label>Número do BI</label>
+<input type="text" id="bi">
 </div>
 
-<div class="bloco">
+<div class="campo">
 <label>Telefone</label>
-<input type="text">
+<input type="text" id="telefone">
 </div>
 
-<div class="bloco">
+<div class="campo">
 <label>Email</label>
-<input type="email">
+<input type="email" id="email">
 </div>
 
-<div class="bloco">
+<div class="campo">
 <label>Turma</label>
-<input type="text">
+<input type="text" id="turma">
 </div>
 
-<div class="bloco">
+<div class="campo">
 <label>Turno</label>
-<input type="text">
+<input type="text" id="turno">
 </div>
 
-<div class="bloco">
+<div class="campo">
 <label>Classe</label>
-<input type="text">
+<input type="text" id="classe">
 </div>
 
-<div class="bloco">
+<div class="campo">
 <label>Disciplina</label>
-<input type="text">
+<input type="text" id="disciplina">
 </div>
 
 </div>
 
 <div class="notas">
 
-<div class="bloco">
-<label>Nota 1</label>
-<input type="number" id="n1" oninput="calcular()">
+<h2>Avaliação</h2>
+
+<div class="notas-grid">
+
+<div class="campo">
+<label>Nota MAC</label>
+<input type="number" id="mac">
 </div>
 
-<div class="bloco">
-<label>Nota 2</label>
-<input type="number" id="n2" oninput="calcular()">
+<div class="campo">
+<label>Nota PP</label>
+<input type="number" id="pp">
 </div>
 
-<div class="bloco">
-<label>Nota 3</label>
-<input type="number" id="n3" oninput="calcular()">
-</div>
-
-</div>
-
-<div class="resultado">
-
-<div class="bloco">
-<label>Média</label>
-<input type="text" id="media" readonly>
-</div>
-
-<div class="bloco">
-<label>Situação</label>
-<input type="text" id="situacao" readonly>
+<div class="campo">
+<label>Nota OE</label>
+<input type="number" id="oe">
 </div>
 
 </div>
+
+</div>
+
+<button class="btn" onclick="adicionarAluno()">
+Adicionar Aluno
+</button>
+
+</div>
+
+<div class="resumo" id="resumo">
+
+<h3>Resumo do Aluno</h3>
+
+<p>Os dados aparecerão aqui...</p>
+
+</div>
+
+<div class="tabela">
+
+<table>
+
+<thead>
+
+<tr>
+<th>Curso</th>
+<th>Nome</th>
+<th>Nº</th>
+<th>BI</th>
+<th>Telefone</th>
+<th>Email</th>
+<th>Turma</th>
+<th>Turno</th>
+<th>Classe</th>
+<th>Disciplina</th>
+<th>MAC</th>
+<th>PP</th>
+<th>OE</th>
+<th>Média</th>
+<th>Situação</th>
+</tr>
+
+</thead>
+
+<tbody id="tabelaAluno">
+
+</tbody>
+
+</table>
 
 </div>
 
 <script>
 
-function calcular(){
+function adicionarAluno(){
 
-let n1 = parseFloat(document.getElementById("n1").value) || 0;
-let n2 = parseFloat(document.getElementById("n2").value) || 0;
-let n3 = parseFloat(document.getElementById("n3").value) || 0;
+let curso = document.getElementById("curso").value;
+let nome = document.getElementById("nome").value;
+let numero = document.getElementById("numero").value;
+let bi = document.getElementById("bi").value;
+let telefone = document.getElementById("telefone").value;
+let email = document.getElementById("email").value;
+let turma = document.getElementById("turma").value;
+let turno = document.getElementById("turno").value;
+let classe = document.getElementById("classe").value;
+let disciplina = document.getElementById("disciplina").value;
 
-if(n1==0 || n2==0 || n3==0){
-    return;
-}
+let mac = Number(document.getElementById("mac").value);
+let pp = Number(document.getElementById("pp").value);
+let oe = Number(document.getElementById("oe").value);
 
-let media = (n1+n2+n3)/3;
+let media = ((mac + pp + oe)/3).toFixed(1);
 
-document.getElementById("media").value = media.toFixed(1);
-
-let situacao = document.getElementById("situacao");
+let situacao = "";
+let classeSituacao = "";
 
 if(media >= 10){
-    situacao.value = "APTO";
-    situacao.style.color = "green";
-}
 
+    situacao = "Apto";
+    classeSituacao = "apto";
+
+}
 else if(media >= 8){
-    situacao.value = "RECURSO";
-    situacao.style.color = "orange";
+
+    situacao = "Recurso";
+    classeSituacao = "recurso";
+
+}
+else{
+
+    situacao = "Não Apto";
+    classeSituacao = "naoapto";
+
 }
 
-else{
-    situacao.value = "REPROVADO";
-    situacao.style.color = "red";
-}
+/* RESUMO */
+
+document.getElementById("resumo").innerHTML = `
+
+<h3>Resumo do Aluno</h3>
+
+<p><strong>Nome:</strong> ${nome}</p>
+<p><strong>Curso:</strong> ${curso}</p>
+<p><strong>Disciplina:</strong> ${disciplina}</p>
+<p><strong>Média:</strong> ${media}</p>
+<p><strong>Situação:</strong> ${situacao}</p>
+
+`;
+
+/* TABELA */
+
+let linha = `
+
+<tr>
+
+<td>${curso}</td>
+<td>${nome}</td>
+<td>${numero}</td>
+<td>${bi}</td>
+<td>${telefone}</td>
+<td>${email}</td>
+<td>${turma}</td>
+<td>${turno}</td>
+<td>${classe}</td>
+<td>${disciplina}</td>
+<td>${mac}</td>
+<td>${pp}</td>
+<td>${oe}</td>
+<td>${media}</td>
+
+<td class="${classeSituacao}">
+${situacao}
+</td>
+
+</tr>
+
+`;
+
+document.getElementById("tabelaAluno").innerHTML += linha;
+
+/* LIMPAR CAMPOS */
+
+document.querySelectorAll("input").forEach(function(campo){
+
+    campo.value = "";
+
+});
 
 }
 
